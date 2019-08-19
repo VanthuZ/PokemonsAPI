@@ -24,11 +24,12 @@ public class Pokemon {
     private int number;
     private String name;
     private String[] types;
+    private int total;
     private int healthPoints;
     private int attack;
     private int defense;
     private int specialAttack;
-    private int defence;
+    private int specialDefence;
     private int speed;
     private int generation;
     private boolean isLegendary;

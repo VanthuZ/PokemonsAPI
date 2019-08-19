@@ -7,5 +7,5 @@ import pl.vanthus.pokemonsAPI.Model.Pokemon;
 
 
 @Repository
-public interface PokemonRepository extends JpaRepository<Long, Pokemon> {
+public interface PokemonRepository extends JpaRepository<Pokemon, Long> {
 }
