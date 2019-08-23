@@ -5,10 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 
 @Entity
@@ -23,7 +21,15 @@ public class Pokemon {
     private Long id;
     private int number;
     private String name;
-    private String[] types;
+    @ManyToMany(
+            cascade = CascadeType.ALL,
+            fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "pokemon_type",
+            joinColumns = @JoinColumn(name = "pokemon_id"),
+            inverseJoinColumns = @JoinColumn(name = "type_id")
+    )
+    private List<Type> types;
     private int total;
     private int healthPoints;
     private int attack;
@@ -33,7 +39,4 @@ public class Pokemon {
     private int speed;
     private int generation;
     private boolean isLegendary;
-
-
-
 }
