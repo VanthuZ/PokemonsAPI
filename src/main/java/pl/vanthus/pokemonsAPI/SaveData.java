@@ -34,7 +34,6 @@ public class SaveData {
         this.typeService = typeService;
     }
 
-    @EventListener(ApplicationReadyEvent.class)
     public void parseAndSaveData(){
 
         String csvFile = "C:\\Users\\Vanthus\\dev\\pokemonAPI\\src\\main\\resources\\Pokemon.csv";
