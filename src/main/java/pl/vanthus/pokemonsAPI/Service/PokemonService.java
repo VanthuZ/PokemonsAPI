@@ -44,5 +44,7 @@ public class PokemonService {
                 .collect(Collectors.toList());
     }
 
-
+    public List<Pokemon> getByGeneration(int number){
+        return pokemonRepository.findByGeneration(number);
+    }
 }

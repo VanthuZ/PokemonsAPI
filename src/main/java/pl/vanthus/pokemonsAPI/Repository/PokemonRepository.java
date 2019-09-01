@@ -12,5 +12,5 @@ import java.util.List;
 public interface PokemonRepository extends JpaRepository<Pokemon, Long> {
 
      List<Pokemon> findByIsLegendary(boolean isLegendary);
-     List<Pokemon> findByGeneration(Long generation);
+     List<Pokemon> findByGeneration(int generation);
 }

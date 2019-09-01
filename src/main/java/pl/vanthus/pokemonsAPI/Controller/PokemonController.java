@@ -36,8 +36,12 @@ public class PokemonController {
 
     @RequestMapping("/type")
     public List<Pokemon> getByType(@RequestParam String name){
-        System.out.println(name);
         return pokemonService.getPokemonByType(name);
+    }
+
+    @RequestMapping("/generation")
+    public List<Pokemon> getByGeneration(@RequestParam int number){
+        return pokemonService.getByGeneration(number);
     }
 
 
