@@ -19,18 +19,26 @@ public class PokemonController {
         this.pokemonService = pokemonService;
     }
 
+    @RequestMapping("")
+    public Pokemon getPokemonById(@RequestParam Long id){
+        return pokemonService.getPokemonById(id);
+    }
+
     @RequestMapping("/all")
     public List<Pokemon> getAll(){
         return pokemonService.getAll();
     }
 
     @RequestMapping("/legendaries")
-    public List<Pokemon> getLegendaries(){
-        return pokemonService.getLegendaries();
+    public List<Pokemon> getLegendaries(@RequestParam boolean isLegendary){
+        return pokemonService.getByLegendaries(isLegendary);
     }
 
-    @RequestMapping("/{generation}")
-    public List<Pokemon> getByGeneration(@PathVariable String generation){
-        return pokemonService.getPokemonByGeneration(generation);
+    @RequestMapping("/type")
+    public List<Pokemon> getByType(@RequestParam String name){
+        System.out.println(name);
+        return pokemonService.getPokemonByType(name);
     }
+
+
 }

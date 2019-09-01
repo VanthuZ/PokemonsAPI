@@ -23,20 +23,26 @@ public class PokemonService {
         this.typeRepository = typeRepository;
     }
 
+    public Pokemon getPokemonById(Long id){
+        return pokemonRepository.getOne(id);
+    }
+
     public List<Pokemon> getAll(){
         return pokemonRepository.findAll();
     }
 
-    public List<Pokemon> getLegendaries() {
-        return pokemonRepository.findByIsLegendary(true);
+    public List<Pokemon> getByLegendaries(boolean isLegendary) {
+        return pokemonRepository.findByIsLegendary(isLegendary);
     }
 
-    public List<Pokemon> getPokemonByGeneration(String generation){
+    public List<Pokemon> getPokemonByType(String typeName){
 
-        Type type = typeRepository.findByName(generation);
+        Type type = typeRepository.findByName(typeName);
 
         return  pokemonRepository.findAll().stream()
                 .filter(p -> p.getTypes().contains(type))
                 .collect(Collectors.toList());
     }
+
+
 }
