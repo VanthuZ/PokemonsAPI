@@ -13,4 +13,6 @@ public interface PokemonRepository extends JpaRepository<Pokemon, Long> {
 
      List<Pokemon> findByIsLegendary(boolean isLegendary);
      List<Pokemon> findByGeneration(int generation);
+     List<Pokemon> findByName(String name);
+     Pokemon findByNumber(int number);
 }

@@ -19,12 +19,22 @@ public class PokemonController {
         this.pokemonService = pokemonService;
     }
 
-    @RequestMapping("")
+    @RequestMapping(value = "", params = "id")
     public Pokemon getPokemonById(@RequestParam Long id){
-        return pokemonService.getPokemonById(id);
+            return pokemonService.getPokemonById(id);
     }
 
-    @RequestMapping("/all")
+    @RequestMapping(value = "", params = "name")
+    public List<Pokemon> getPokemonByName(@RequestParam String name) {
+        return pokemonService.getPokemonByName(name);
+    }
+
+    @RequestMapping(value = "", params = "number")
+    public Pokemon getPokemonByNumber(@RequestParam int number) {
+        return pokemonService.getPokemonByNumber(number);
+    }
+
+        @RequestMapping("/all")
     public List<Pokemon> getAll(){
         return pokemonService.getAll();
     }
@@ -43,6 +53,4 @@ public class PokemonController {
     public List<Pokemon> getByGeneration(@RequestParam int number){
         return pokemonService.getByGeneration(number);
     }
-
-
 }

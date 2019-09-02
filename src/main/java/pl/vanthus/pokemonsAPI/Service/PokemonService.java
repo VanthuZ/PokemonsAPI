@@ -27,6 +27,14 @@ public class PokemonService {
         return pokemonRepository.getOne(id);
     }
 
+    public List<Pokemon> getPokemonByName(String name){
+        return pokemonRepository.findByName(name);
+    }
+
+    public Pokemon getPokemonByNumber(int number) {
+        return pokemonRepository.findByNumber(number);
+    }
+
     public List<Pokemon> getAll(){
         return pokemonRepository.findAll();
     }
