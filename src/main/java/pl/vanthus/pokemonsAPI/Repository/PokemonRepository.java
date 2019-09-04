@@ -4,6 +4,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import pl.vanthus.pokemonsAPI.Model.Pokemon;
+import pl.vanthus.pokemonsAPI.Model.Type;
 
 import java.util.List;
 
@@ -12,7 +13,12 @@ import java.util.List;
 public interface PokemonRepository extends JpaRepository<Pokemon, Long> {
 
      List<Pokemon> findByIsLegendary(boolean isLegendary);
+
      List<Pokemon> findByGeneration(int generation);
+
      List<Pokemon> findByName(String name);
+
      Pokemon findByNumber(int number);
+
+     List<Pokemon> findByGenerationAndTypes(int generation, Type type);
 }

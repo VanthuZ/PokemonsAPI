@@ -34,22 +34,27 @@ public class PokemonController {
         return pokemonService.getPokemonByNumber(number);
     }
 
-        @RequestMapping("/all")
+    @RequestMapping("/list")
+    public List<Pokemon> getPokemonByGenerationAndType(@RequestParam int generation, @RequestParam String type){
+        return pokemonService.getPokemonByGenartionAndType(generation, type);
+    }
+
+    @RequestMapping("/list/all")
     public List<Pokemon> getAll(){
         return pokemonService.getAll();
     }
 
-    @RequestMapping("/legendaries")
+    @RequestMapping("/list/legendaries")
     public List<Pokemon> getLegendaries(@RequestParam boolean isLegendary){
         return pokemonService.getByLegendaries(isLegendary);
     }
 
-    @RequestMapping("/type")
+    @RequestMapping("/list/type")
     public List<Pokemon> getByType(@RequestParam String name){
         return pokemonService.getPokemonByType(name);
     }
 
-    @RequestMapping("/generation")
+    @RequestMapping("/list/generation")
     public List<Pokemon> getByGeneration(@RequestParam int number){
         return pokemonService.getByGeneration(number);
     }

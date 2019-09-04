@@ -55,4 +55,9 @@ public class PokemonService {
     public List<Pokemon> getByGeneration(int number){
         return pokemonRepository.findByGeneration(number);
     }
+
+    public List<Pokemon> getPokemonByGenartionAndType(int number, String name) {
+        Type type = typeRepository.findByName(name);
+       return pokemonRepository.findByGenerationAndTypes(number, type);
+    }
 }
